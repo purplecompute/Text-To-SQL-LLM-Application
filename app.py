@@ -31,8 +31,14 @@ def read_sql_query(sql, db):
 # Define your prompt
 prompt = [
     """
-    You are an expert in converting English questions to SQL query! The SQL database has the name STUDENT and table named STUDENTS and has the following columns - Name, Class, Section and Marks. \n\n For example, \n Example 1 - How many entries of records are present ? The SQL command will be something like this SELECT COUNT(*) FROM STUDENTS;, \n Example 2 - Tell me all the students studying in Data Science class?, the SQL command will be something like this SELECT * FROM STUDENTS WHERE Class="Data Science";
-    also the SQL code should not have ｀｀｀ in beginning or end and SQL word in the output
+    You are an expert in converting English questions to SQL query!
+    The SQL database has the name STUDENT and has the following columns - NAME, CLASS, 
+    SECTION \n\nFor example,\nExample 1 - How many entries of records are present?, 
+    the SQL command will be something like this SELECT COUNT(*) FROM STUDENT ;
+    \nExample 2 - Tell me all the students studying in Data Science class?, 
+    the SQL command will be something like this SELECT * FROM STUDENT 
+    where CLASS="Data Science"; 
+    also the sql code should not have ``` in beginning or end and sql word in output
     """
  ]
  
@@ -47,13 +53,33 @@ submit = st.button("Ask the question")
 
 # If submit is clicked
 if submit:
-    response = get_gemini_response(question, prompt)
-    print(response)
-    data = read_sql_query(response, "student.db")
-    st.subheader("The response is")
-    for row in data:
-        print(row)
-        st.header(row)
+    if question is None or question == "":
+        st.error("Please enter a question")
+        exit()
+    else: 
+        response = get_gemini_response(question, prompt)
+        print(response)
+        data = read_sql_query(response, "student.db")
+        st.subheader("The response is")
+        for row in data:
+            print(row)
+            st.header(row)
 
-
+# Add developer information at the bottom
+st.markdown("""
+    <div style='text-align: center; margin-top: 50px;'>
+        <p>
+            <img src='https://raw.githubusercontent.com/purplecompute/Media/Multi-Language-Invoice-Data-Extractor-Using-LLM/master/Media/sparkling_ai_icon.png' alt='Sparkling AI logo' width='17' style='vertical-align: middle;' />
+            Developed By: Mayur Satao
+        </p>
+        <p>
+            <a href='https://github.com/purplecompute' target='_blank'>
+                <img src='https://raw.githubusercontent.com/purplecompute/Media/Multi-Language-Invoice-Data-Extractor-Using-LLM/master/Media/github_icon.png' alt='GitHub logo' width='30' style='vertical-align: middle;' />
+            </a>
+            <a href='https://www.linkedin.com/in/mayur-satao' target='_blank'>
+                <img src='https://raw.githubusercontent.com/purplecompute/Media/Multi-Language-Invoice-Data-Extractor-Using-LLM/master/Media/linkedin_icon.png' alt='LinkedIn logo' width='30' style='vertical-align: middle;' />
+            </a>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
