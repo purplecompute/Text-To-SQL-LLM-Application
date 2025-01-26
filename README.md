@@ -1,4 +1,4 @@
-# SQL LLM Project
+# Text To SQL Query LLM Project
 
 This project is a Streamlit application that uses Google Generative AI to convert natural language questions into SQL queries and retrieve data from a SQLite database. The application allows users to input a question and get a response based on the content of the database.
 
@@ -8,11 +8,11 @@ This project is a Streamlit application that uses Google Generative AI to conver
 - Use Streamlit for the web interface
 - Convert natural language questions to SQL queries using Google Generative AI
 - Retrieve and display data from a SQLite database
-
+<!--
 ## Video Demo
 
-<img align="centre" alt="GIF" src="https://raw.githubusercontent.com/purplecompute/Multi-Language-Invoice-Data-Extractor-Using-LLM/master/Media/Invoice_Data_Extractor_Project_Demo.gif?raw=true" width="1200" height="550" />
-
+<img align="centre" alt="GIF" src="https://raw.githubusercontent.com/purplecompute/Text-To-SQL-LLM-Application/master/Media/Invoice_Data_Extractor_Project_Demo.gif?raw=true" width="1200" height="550" />
+-->
 ## Requirements
 
 - Python 3.x
@@ -57,11 +57,11 @@ This project is a Streamlit application that uses Google Generative AI to conver
 
 ## Project Structure
 
-- [app.py](http://_vscodecontentref_/2): The main application file that contains the Streamlit app and the logic for interacting with Google Generative AI and the SQLite database.
-- [sql.py](http://_vscodecontentref_/3): A script to set up the SQLite database and insert initial records.
-- [requirements.txt](http://_vscodecontentref_/4): A list of Python packages required for the project.
-- [.env](http://_vscodecontentref_/5): A file to store environment variables (not included in the repository).
-- [.gitignore](http://_vscodecontentref_/6): A file specifying which files and directories to ignore in the repository.
+- [app.py](https://github.com/purplecompute/Text-To-SQL-LLM-Application/blob/master/app.py): The main application file that contains the Streamlit app and the logic for interacting with Google Generative AI and the SQLite database.
+- [sql.py](https://github.com/purplecompute/Text-To-SQL-LLM-Application/blob/master/sql.py): A script to set up the SQLite database and insert initial records.
+- [requirements.txt](https://github.com/purplecompute/Text-To-SQL-LLM-Application/blob/master/requirements.txt): A list of Python packages required for the project.
+- [.env](https://github.com/purplecompute/Text-To-SQL-LLM-Application/blob/master/.env): A file to store environment variables (not included in the repository).
+- [.gitignore](https://github.com/purplecompute/Text-To-SQL-LLM-Application/blob/master/.gitignore): A file specifying which files and directories to ignore in the repository.
 
 ## License
 
